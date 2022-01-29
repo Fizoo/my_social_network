@@ -1,0 +1,56 @@
+
+p{
+    color:#939393;
+}
+hr {
+    border-top: 1px solid #dbd8d8;
+}
+.profileInfo{
+    background:white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 2%;
+    align-self: start;
+    margin-bottom: 15px;
+}
+.status{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+.statusName {
+    height:70px;
+}
+.statusName h2{
+    height: 25px;
+}
+.day{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px 0;
+}
+.fullInfo{
+    color:#2A5885;
+    border:none;
+}
+.fullInfo:hover{
+    background: #f1f4f8;
+    color:#2A5885;
+}
+.statistic{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+.number{
+    color: #2A5885;
+    font-size: 18px;
+    font-weight: 500;
+}
+.str{
+    color:#626D7A;
+}
+.hidden{
+    display: none;
+}
