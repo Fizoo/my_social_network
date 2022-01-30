@@ -1,14 +1,42 @@
-import {FC} from "react";
-import s from "./ProfileInfo.module.css";
-import {Button, Divider} from "antd";
+import {FC, useState} from "react";
+import s from "./style.module.scss";
+import {Button, Input} from "antd";
+import {useAppDispatch, useAppSelector} from "../../../Hooks/redux";
+import {updateStatus} from "../../../redux/reducers/profile/ProfileSlice";
 
 export const ProfileInfo: FC = () => {
+
+    const dispatch=useAppDispatch()
+    const status = useAppSelector(state => state.postReducer.status)
+
+    const [value, setValue] = useState('');
+    const [activeMode, setActiveMode] = useState(false);
+
+
+    const setStatus = () => {
+        if (value.length > 0) {
+            dispatch(updateStatus(value))
+        }
+        setActiveMode(false)
+    };
+
     return (
         <div className={s.profileInfo}>
             <div className={s.status}>
                 <div className={s.statusName}>
                     <h2>Oleg Mykytchuk</h2>
-                    <p>Vini Vici Viki</p>
+                    {!activeMode && <p onDoubleClick={() => setActiveMode(true)}>{status}</p>}
+                    {activeMode && <Input type="text" value={value}
+                                          onChange={e => setValue(e.target.value)}
+                                          onPressEnter={setStatus}
+                                          onBlur={setStatus}
+                                          allowClear
+                                          maxLength={20}
+                                          autoFocus={true}
+
+
+                    />
+                    }
                 </div>
                 <p> online</p>
             </div>
@@ -21,7 +49,7 @@ export const ProfileInfo: FC = () => {
                 <div>
                     <Button className={s.fullInfo} block>Показать подробную информацию</Button>
                 </div>
-               <div className={s.hidden}>hidden div</div>
+                <div className={s.hidden}>hidden div</div>
 
             </div>
             <hr/>

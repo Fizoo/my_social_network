@@ -1,0 +1,42 @@
+
+.content {
+    grid-area: c;
+    background: #EDEEF0;
+    /* display: grid;
+     grid-template-columns:250px 600px;
+     grid-template-rows:minmax(275px,1fr) 130px auto 1fr;
+     grid-gap: 15px;*/
+    display: flex;
+    padding: 10px;
+
+    .left {
+        margin-right: 15px;
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+    }
+}
+
+/*
+.myPhoto {
+    width: 250px;
+    height: 370px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 2%;
+
+}*/
+
+
+
+
+
+
+
+

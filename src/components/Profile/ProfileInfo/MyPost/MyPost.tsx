@@ -1,19 +1,20 @@
-import {FC, useState} from "react";
-import s from "./MyPost.module.css"
+import React, {FC} from "react";
+import s from "./style.module.scss"
+import {useAppSelector} from "../../../../Hooks/redux";
 
-interface MyPostTypes {
-    posts: string[]
-}
+import Posts from "./Posts";
 
-export const MyPost: FC<MyPostTypes> = ({posts}) => {
-    const pos = ['Hello, world!', 'Hello, world!'
-        , 'Hello, world!',
-        'Hello, world!',
-        'Hello, world!'];
+
+export const MyPost: FC = () => {
+    let posts=useAppSelector(state=>state.postReducer.post)
+
+    console.log('MyPost')
+
+
 
     return (
         <div className={s.post}>
-            {[...pos,...posts].map(el=> <div className={s.myPost}>{el}</div>)}
+           {posts.map(el=> <Posts key={el.id} {...el}/>)}
         </div>
     )
 }

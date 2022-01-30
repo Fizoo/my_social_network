@@ -1,7 +1,9 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import postReducer from "./reducers/profile/ProfileSlice";
 
-const rootReducer=combineReducers({
 
+let rootReducer=combineReducers({
+   postReducer
 })
 
 
