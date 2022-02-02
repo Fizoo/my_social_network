@@ -23,12 +23,12 @@ export const ProfilePost:FC = () => {
 
     return (
         <div>
-            <div className={s.form}>
+            <div className={s.form} onFocus={()=>{}}>
 
                 <Form onFinish={addPosts}>
                     <TextArea onChange={(e)=>setValue(e.target.value)} placeholder="Add post" allowClear autoSize />
                     <Row className={s.btnRow} justify='end'>
-                        <Button type="primary" htmlType="submit">
+                        <Button  type="primary" htmlType="submit" >
                             Submit
                         </Button>
                     </Row>

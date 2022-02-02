@@ -3,9 +3,19 @@ import photo from './../../assets/images/37395461_1728469247273574_2742199746478
 
 import s from "./style.module.scss";
 import {Avatar, Badge, Button} from "antd";
+import {logout} from "../../redux/reducers/auth/AuthSlice";
+import {useAppDispatch} from "../../Hooks/redux";
+import {useNavigate} from "react-router-dom";
 
 
 export const Header: FC = () => {
+    const dispatch=useAppDispatch()
+    const navigate=useNavigate()
+
+   const handleClick = () => {
+        navigate('/login')
+       dispatch(logout())
+   }
 
   return (
       <div className={s.header}>
@@ -21,7 +31,7 @@ export const Header: FC = () => {
                     </Badge>
                 </a>
 
-               <Button type="text" >Exit</Button>
+               <Button onClick={handleClick} type="text" >Exit</Button>
             {/*  <Login/>*/}
             </div>
         </div>

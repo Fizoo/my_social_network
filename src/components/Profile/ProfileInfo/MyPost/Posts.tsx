@@ -15,9 +15,11 @@ const Posts:FC<PostsType> = (el) => {
 
     }
 
+
+
     return (
 
-            <div key={el.id}  className={s.myPost}>
+            <div  className={s.myPost}>
                 <p>{el.message}</p>
                 <Button  type='text'  onClick={remove} icon={<CloseOutlined />}/>
             </div>
