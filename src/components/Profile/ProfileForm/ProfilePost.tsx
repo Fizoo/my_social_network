@@ -10,10 +10,7 @@ import {addPost} from "../../../redux/reducers/profile/ProfileSlice";
 export const ProfilePost:FC = () => {
     const [value, setValue] = useState('');
 
-    console.log('ProfilePost')
-
     const dispatch=useAppDispatch()
-
 
     const addPosts = () => {
         if(value.length>0) {

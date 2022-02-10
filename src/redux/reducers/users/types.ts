@@ -7,7 +7,9 @@ export type PhotosType={
 export interface IUser {
     id:number
     name: string
-    city:string
+    city?:string
     photos:PhotosType
     followed?:boolean
+    status?:string
 }
+

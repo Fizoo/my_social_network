@@ -12,10 +12,22 @@ import {Message} from "./components/Messages/Message";
 import {Users} from "./components/Users/Users";
 import {Login} from "./pages/Login/Login";
 import {NotPage} from "./pages/NotPage";
+import {userApi} from "./API/userApi";
 
 
 export const App: FC = () => {
 
+    const {data}=userApi.useAuthMeQuery()
+    const isAuth =data?.resultCode===0
+
+    if (!isAuth){
+        return (
+            <div className={s.main}>
+                <Header/>
+                <Login/>
+            </div>
+        )
+    }
     return (
         <div className={s.main}>
             <Header/>

@@ -3,18 +3,22 @@ import postReducer from "./reducers/profile/ProfileSlice";
 import dialogReducer from './reducers/dialogs/DialogSlice'
 import userReducer from './reducers/users/UsersSlice'
 import authReducer from './reducers/auth/AuthSlice'
+import {userApi} from "../API/userApi";
 
 
 let rootReducer = combineReducers({
     postReducer,
     dialogReducer,
     userReducer,
-    authReducer
+    authReducer,
+    [userApi.reducerPath]:userApi.reducer
 })
 
 
 export const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware:(getDefaultMiddleware)=>
+        getDefaultMiddleware().concat(userApi.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>

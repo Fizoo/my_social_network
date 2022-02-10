@@ -1,16 +1,15 @@
 import {FC} from "react";
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import s from "./style.module.scss";
 import {isAct} from "../utils/ActiveLink";
-import {useAppSelector} from "../../Hooks/redux";
 
 export const Navbar:FC=()=>{
 
-    const {isAuth} = useAppSelector(state => state.authReducer)
+
 
 
     return(
-        <div className={isAuth? s.navbar:s.noAuth }>
+        <div className={ s.navbar }>
             <NavLink to='/'>Profile</NavLink>
             <NavLink to='/users'>Users</NavLink>
             <NavLink to='/messages/'
